@@ -1,12 +1,11 @@
 from urllib import response
 from Google import Create_Service
-from pprint import pprint
 import pandas as pd
 
-CLIENT_SECRET_FILE = 'Client_secret.json'
+CLIENT_SECRET_FILE = 'client_secrets.json'
 API_NAME = 'drive'
 API_VERSION = 'v3'
-SCOPES = ['https://www.googleapis.com/auth/drive'	]
+SCOPES = ['https://www.googleapis.com/auth/drive']
 
 service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
@@ -20,7 +19,8 @@ def get_storage_info():
 
     print(response.get("user")['displayName'])
 
-# print(get_storage_info())
+
+print(get_storage_info())
 
 
 def get_old_files(date: str):
@@ -37,6 +37,16 @@ def get_old_files(date: str):
         nextPageToken = get_all_files.get('nextPageToken')
 
     for file in matched_files:
-        print(file['name'])
+        print(file)
 
-# print(get_old_files('2019-06-04'))
+# print(get_old_files('2017-06-04'))
+
+
+def delete_files(fileId_list):
+    for id in fileId_list:
+        service.files().delete(
+            fileId=id
+        ).execute()
+
+
+# delete_files([''])
