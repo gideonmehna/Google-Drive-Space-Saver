@@ -103,14 +103,6 @@ def second_screen():
     keep_button.grid(row=6, column=1)
     delete_button.grid(row=6, column=2)
     
-    # second_prompt = Label(root, text=drive_info).grid(row=3, column=2)
-    # second_prompt_1 = Label(root, text="Do you still need the file {0}?? It takes up {1} of your space!! ".format(random_file_name,  random_file_storage)).grid(row=5, column=2)
-
-    # keep_button = Button(root, text="Keep File!", command=keep_and_third, padx=50, pady=25, fg='blue', bg='#ff0077').grid(row=6, column=1)
-    
-    # delete_button = Button(root, text="Delete File!", command=del_and_third, padx=50, pady=25, fg='blue', bg='#ff0077').grid(row=6, column=2)
-
-    # backup_button = Button(root, text="Back Up File!", command=backup_and_third, padx=50, pady=25, fg='blue', bg='#ff0077').grid(row=6, column=3)
 
 
 def third_screen(msg: str):
@@ -159,15 +151,19 @@ def run_start_up_functions():
     d_ate =str(d_ate.date())
     # get random file too. 
     random_file = get_old_files(d_ate)
-    while random_file == None:
+    count = 0
+    while random_file == None and count<1000:
         d_ate = datetime.datetime.now() - datetime.timedelta(days=1)
         d_ate =str(d_ate.date())
         random_file = get_old_files(d_ate)
+        count += 1
     random_file_id = random_file['id']
     random_file_name = random_file['name']
     random_file_mimeType = random_file['mimeType']
     # get random file size
     random_file_storage = get_file_size(random_file_id)
+    if count >= 1000:
+        print("The keep_file.json is full with all files. It needs to be emptied.")
     second_screen()
 
 
