@@ -119,7 +119,7 @@ class Buttons():
 
         fh.seek(0)
 
-        with open(os.path.join('/home/ian/Downloads', file['name']), 'wb') as f:
+        with open(os.path.join('C:/Users/ugstu/Downloads/Gui', file['name']), 'wb') as f:
             f.write(fh.read())
             f.close()
 

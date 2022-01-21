@@ -24,7 +24,7 @@ random_file_mimeType = ''
 random_file_storage = ''
 
 # second page oh
-drive_info = get_storage_info()
+drive_info = "This is the Current State of your Drive:\n"+ get_storage_info()
 second_prompt = Label(root, text=drive_info)
 second_prompt_1 = Label(root, text="Do you still need the file {0}?? It takes up {1} of your space!! ".format(random_file_name,  random_file_storage))
 
@@ -58,16 +58,16 @@ def del_and_third():
 
 
 # buttons
-keep_button = Button(root, text="Keep File!", command=keep_and_third, padx=50, pady=25, fg='blue', bg='#ff0077')
+keep_button = Button(root, text="Keep File!", command=keep_and_third, padx=50, pady=25, fg='blue', bg='#efefef')
 
-delete_button = Button(root, text="Delete File!", command=del_and_third, padx=50, pady=25, fg='blue', bg='#ff0077')
+delete_button = Button(root, text="Delete File!", command=del_and_third, padx=50, pady=25, fg='white', bg='#ff0909')
 
-backup_button = Button(root, text="Back Up File!", command=backup_and_third, padx=50, pady=25, fg='blue', bg='#ff0077')
+backup_button = Button(root, text="Back Up File!", command=backup_and_third, padx=50, pady=25, fg='white', bg='#22ff22')
 
 # third page oh!
 third_prompt = Label(root, text=drive_info )
 third_prompt_1 = Label(root, text="")
-button_quit = Button(root, text="Exit Program!", command=root.quit, padx=50, pady=25, fg='blue', bg='#ff0077')
+button_quit = Button(root, text="Exit Program!", command=root.quit, padx=50, pady=25, fg='white', bg='#ff0077')
 
 
 
@@ -102,7 +102,7 @@ def second_screen():
     second_prompt_1.grid(row=5, column=2)
     keep_button.grid(row=6, column=1)
     delete_button.grid(row=6, column=2)
-    
+    backup_button.grid(row=6, column=3)
 
 
 def third_screen(msg: str):
@@ -121,19 +121,22 @@ def third_screen(msg: str):
     global delete_button
     global backup_button
     global start_button
-
+    global drive_info
     second_prompt.grid_forget()
     second_prompt_1.grid_forget()
     keep_button.grid_forget()
     delete_button.grid_forget()
     backup_button.grid_forget()
 
-    drive_info = get_storage_info()
-    third_prompt.grid(row=3, column=2)
+    drive_info_1 = "Check out the new storage info:\n" + get_storage_info()
+    
+    third_prompt.grid(row=4, column=2)
     third_prompt_1.configure(text=msg)
-    third_prompt_1.grid(row=4, column=2)
-    start_button.grid(row=5, column=2)
-    button_quit.grid(row=5, column=3)
+    third_prompt_1.grid(row=3, column=2)
+    third_prompt_2 = Label(root, text=drive_info_1 )
+    # third_prompt_2.grid(row=5, column=2)
+    start_button.grid(row=6, column=1)
+    button_quit.grid(row=6, column=3)
 
 
 def run_start_up_functions():
@@ -182,8 +185,9 @@ first_prompt.grid(row=3, column=2)
 
 # button
 # this button might just run the function that changes pages. 
-start_button = Button(root, text="Click Here to Start GDSS!", command=run_start_up_functions, padx=50, pady=25, fg='blue', bg='#ff0077')
+start_button = Button(root, text="Click Here to Start GDSS!", command=run_start_up_functions, padx=50, pady=25, fg='white', bg='#5500ff')
 start_button.grid(row=5, column=2)
 
+bottom_line = Label(root, text="FRee YouR SelF with GDSS!").grid(row=7, column=2)
 
 root.mainloop()
