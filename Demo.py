@@ -79,9 +79,9 @@ def get_old_files(date: str):
                 file = matched_files[random_file_index]
                 have_not_got_file = False
     return file
+#
 
-
-# print(get_old_files('2022-12-04'))
+# print(get_old_files('2022-01-21'))
 
 
 class Buttons():
@@ -127,7 +127,7 @@ class Buttons():
         Buttons.delete_file(file)
 
 
-Buttons.back_up({'kind': 'drive#file', 'id': '1SZKvVCD6H6tcIRGTodrs0MeFRMBIex9X',
-                'name': 'mat223_reading_3_1-3_2.pdf', 'mimeType': 'application/pdf'})
+# Buttons.back_up({'kind': 'drive#file', 'id': '1SZKvVCD6H6tcIRGTodrs0MeFRMBIex9X',
+#                 'name': 'mat223_reading_3_1-3_2.pdf', 'mimeType': 'application/pdf'})
 
 # Buttons.keep_file({'kind': 'drive#file', 'id': '1BBuk3jIh9LfDYW6brh1LSgxCLoE8zb0O', 'name': 'HKCEE - biology - 2004 - Paper I&II.pdf', 'mimeType': 'application/pdf'})
