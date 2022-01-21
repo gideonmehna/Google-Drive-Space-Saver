@@ -3,6 +3,7 @@ import io
 import os
 from attr import fields
 from googleapiclient.http import MediaIoBaseDownload
+from numpy import delete
 from Google import Create_Service
 import pandas as pd
 import json
@@ -74,13 +75,13 @@ def get_old_files(date: str):
         while have_not_got_file:
             random_file_index = randint(0, len(matched_files)-1)
             # checking if the random file chosen has not already been chosen.
-            if matched_files[random_file_index] not in list_of_kept_file: 
+            if matched_files[random_file_index] not in list_of_kept_file:
                 file = matched_files[random_file_index]
                 have_not_got_file = False
     return file
 
 
-# print(get_old_files('2016-12-04'))
+# print(get_old_files('2022-12-04'))
 
 
 class Buttons():
@@ -123,7 +124,10 @@ class Buttons():
             f.write(fh.read())
             f.close()
 
+        Buttons.delete_file(file)
 
-# Buttons.back_up({'kind': 'drive#file', 'id': '1v544dzaQ5Vf8ms1CGnfSuDzAzqoj69K9', 'name': 'mock_Set2_Paper2_Oxford1314_sol.doc', 'mimeType': 'application/msword'})
+
+Buttons.back_up({'kind': 'drive#file', 'id': '1SZKvVCD6H6tcIRGTodrs0MeFRMBIex9X',
+                'name': 'mat223_reading_3_1-3_2.pdf', 'mimeType': 'application/pdf'})
 
 # Buttons.keep_file({'kind': 'drive#file', 'id': '1BBuk3jIh9LfDYW6brh1LSgxCLoE8zb0O', 'name': 'HKCEE - biology - 2004 - Paper I&II.pdf', 'mimeType': 'application/pdf'})
