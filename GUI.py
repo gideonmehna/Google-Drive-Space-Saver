@@ -138,7 +138,8 @@ def third_screen(msg: str):
 
     drive_info = get_storage_info()
     third_prompt.grid(row=3, column=2)
-    third_prompt_1.configure(text=msg).grid(row=4, column=2)
+    third_prompt_1.configure(text=msg)
+    third_prompt_1.grid(row=4, column=2)
     start_button.grid(row=5, column=2)
     button_quit.grid(row=5, column=3)
 
