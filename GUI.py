@@ -1,12 +1,12 @@
 from tkinter import *
-from Demo import *
+from Drive_quries import *
 import datetime
-from Demo import get_storage_info, get_old_files, get_file_size
+from Drive_quries import get_storage_info, get_old_files, get_file_size
 from PIL import ImageTk, Image
 
 root = Tk()
 root.title('Google Drive Space Saver App')
-root.iconbitmap('./images/hnet.com-image.ico')
+# root.iconbitmap('./images/hnet.com-image.ico')
 """
 We want to display our icon, then the words google space driver
 saver
@@ -62,19 +62,19 @@ def del_and_third():
 
 # buttons
 keep_button = Button(root, text="Keep File!", command=keep_and_third,
-                     padx=50, pady=25, fg='blue', bg='#ff0077', font='Verdana 12 bold')
+                     padx=50, pady=25, fg='white', bg='#ff0077', font='Verdana 12 bold')
 
 delete_button = Button(root, text="Delete File!", command=del_and_third,
-                       padx=50, pady=25, fg='blue', bg='#ff0077', font='Verdana 12 bold')
+                       padx=50, pady=25, fg='white', bg='#ff0077', font='Verdana 12 bold')
 
 backup_button = Button(root, text="Back Up File!",
-                       command=backup_and_third, padx=50, pady=25, fg='blue', bg='#ff0077', font='Verdana 12 bold')
+                       command=backup_and_third, padx=50, pady=25, fg='white', bg='#ff0077', font='Verdana 12 bold')
 
 # third page oh!
 third_prompt = Label(root, text=drive_info, font='Verdana 10 bold')
 third_prompt_1 = Label(root, text="", font='Verdana 10 bold')
 button_quit = Button(root, text="Exit Program!", command=root.quit,
-                     padx=50, pady=25, fg='blue', bg='#ff0077', font='Verdana 12 bold')
+                     padx=50, pady=25, fg='white', bg='#ff0077', font='Verdana 12 bold')
 
 
 def second_screen():
@@ -194,10 +194,10 @@ first_prompt.grid(row=3, column=2)
 # button
 # this button might just run the function that changes pages.
 start_button = Button(root, text="Click Here to Start GDSS!",
-                      command=run_start_up_functions, padx=50, pady=25, fg='blue', bg='#ff0077', font='Verdana 12 bold')
+                      command=run_start_up_functions, padx=50, pady=25, fg='white', bg='#ff0077', font='Verdana 12 bold')
 start_button.grid(row=5, column=2)
 
 bottom_line = Label(
-    root, text="FRee YouR SelF with GDSS!").grid(row=7, column=2)
+    root, text="FRee YouR SelF with GDSS!", font='Verdana 11 bold').grid(row=7, column=2)
 
 root.mainloop()
