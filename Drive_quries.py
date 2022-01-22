@@ -58,6 +58,7 @@ def get_old_files(date: str):
     # checking if the matched_files has data
     if len(matched_files) == 0:
         return None
+
     with open("keep_file.json", "r", encoding="utf-8") as f:
         list_of_kept_file = json.load(f)
 
@@ -113,7 +114,7 @@ class Buttons():
 
         fh.seek(0)
 
-        with open(os.path.join('/home/ian/Downloads', file['name']), 'wb') as f:
+        with open(os.path.join('C:/Users/ugstu/Downloads/Gui', file['name']), 'wb') as f:
             f.write(fh.read())
             f.close()
 
