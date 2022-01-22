@@ -6,7 +6,7 @@ from PIL import ImageTk, Image
 
 root = Tk()
 root.title('Google Drive Space Saver App')
-# root.iconbitmap('./images/hnet.com-image.ico')
+root.iconbitmap('./images/hnet.com-image.ico')
 """
 We want to display our icon, then the words google space driver
 saver
